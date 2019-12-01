@@ -14,6 +14,7 @@ public class MultiThreadBlockingServer {
         var serverSocket = new ServerSocket(port);
         var handler = new ThreadedHandler<>(new PrintingHandler<>(new TransmogrifyHandler()));
 
+        System.out.println("Server started: "+serverSocket);
         while (true) {
             handler.handle(serverSocket.accept());
         }

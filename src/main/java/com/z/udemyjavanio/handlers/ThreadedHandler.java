@@ -1,7 +1,5 @@
 package com.z.udemyjavanio.handlers;
 
-import java.io.IOException;
-
 public class ThreadedHandler<S> extends UncheckedIOExceptionConverterHandler<S> {
     public ThreadedHandler(Handler<S> other) {
         super(other);

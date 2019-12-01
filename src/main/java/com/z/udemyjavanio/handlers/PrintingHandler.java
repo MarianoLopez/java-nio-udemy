@@ -2,17 +2,16 @@ package com.z.udemyjavanio.handlers;
 
 import java.io.IOException;
 
-public class PrintingHandler<S> implements Handler<S> {
-    private final Handler<S> other;
+public class PrintingHandler<S> extends DecoratedHandler<S> {
 
     public PrintingHandler(Handler<S> other) {
-        this.other = other;
+        super(other);
     }
 
     public void handle(S s) throws IOException {
         System.out.println("Connected to "+s);
         try {
-            other.handle(s);
+            super.handle(s);
         } finally {
             System.out.println("Disconnected from "+s);
         }
