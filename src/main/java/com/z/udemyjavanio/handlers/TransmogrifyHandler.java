@@ -13,6 +13,7 @@ public class TransmogrifyHandler implements Handler<Socket> {
             var outputStream = socket.getOutputStream()) {
             int data;
             while ((data = inputStream.read()) != -1) {
+                if(data == '%') throw new IOException("Oopsie");
                 outputStream.write(transmogrify(data));
             }
         }
